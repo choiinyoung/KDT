@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.localStorage.setItem('name', '최인영');
+    console.log(window.localStorage.getItem('name'));
+    
+    window.localStorage.setItem('number', 25);
+    const number = window.localStorage.getItem('number')
+    console.log(number);
+    console.log(typeof number); //string출력 -> 숫자로 입력하였지만 localStrage는 문자열로 저장 됨
+
+    const young = {
+      name : "최인영",
+      isOld : false,
+      hobby : ["음주","콜라","유투브","수면"]
+    }
+
+    /*const jsonYoung= JSON.stringify(young); //문자로 바꿔서 출력
+    console.log(jsonYoung)  
+
+    const objYoung = JSON.parse(jsonYoung); //다시 객채로 바꿔서 출력
+    console.log(objYoung)*/
+
+    /*const jsonYoung1 =JSON.stringify(young);
+    window.localStorage.setItem('young',jsonYoung1);
+
+    const jsonYoungFromLocal = window.localStorage.getItem('young');
+    const objYoung1 =JSON.parse(jsonYoungFromLocal);
+    console.log(objYoung1)
+    console.log(window.localStorage)*/
+
+    window.localStorage.setItem('pororo','뽀로로입니다');
+    console.log(window.localStorage.getItem('pororo'));
+    window.localStorage.removeItem('pororo'); //특정 값 삭제
+    console.log(window.localStorage.getItem('pororo'));
+
+    window.localStorage.clear();  //모든 값 삭제
+    console.log(window.localStorage); 
+
+    window.localStorage.setItem('young','접니다');
+    window.localStorage.setItem('pororo','뽀로로');
+    console.log(window.localStorage.length);
+    console.log(window.localStorage.key(0));
+    console.log(window.localStorage.key(1));
+    console.log(window.localStorage.key(2));  //null출력 -> 데이터가 없으면 null값 출력
+
+    window.localStorage.clear();
+    window.localStorage.setItem('young','최인영');  //로컬저장소에 저장 -> 화면을 껐다 켜도 남아 있음
+    window.sessionStorage.setItem('pororo','뽀로로'); //세션저장소에 저장 -> 사라짐
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

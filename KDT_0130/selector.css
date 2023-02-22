@@ -1,0 +1,38 @@
+li {
+  color: red;
+}
+
+div{
+  color: blue;
+}
+/*id*/
+#red{
+  color: red;
+}
+/*class*/
+.orange {
+  color: red;
+}
+/*child*/
+ul> .orange {
+  color: orange;
+}
+/*adjacent*/
+.orange + div {
+  color: red;
+}
+/*combi*/
+.orange {
+  color: orange;
+}
+span.orange {
+  background-color: skyblue;
+}
+/*general*/
+.orange ~ li {
+  color: red;
+}
+/*desendant*/
+div .orange {
+  color: orange;
+}

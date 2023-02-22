@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li class="list">2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+</body>
+<script>
+  const listEl = document.querySelector(".list");
+  //listEl.remove(".list")  //list를 가진 2가 사라져서 1 3 4 만 출력
+  console.log(listEl.parentNode);
+
+  const ulEl = document.querySelector("ul");
+  console.log(ulEl.childNodes);
+  console.log(ulEl.children);
+</script>
+</html>

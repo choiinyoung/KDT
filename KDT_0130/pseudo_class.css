@@ -1,0 +1,25 @@
+/*a:hover {
+  color: red;
+}
+a:active{
+  color: yellow;
+}
+input:focus{
+  background-color : orange;
+}
+
+.fruits span:first-child{
+  color: red;
+}
+.fruits h3:last-child{
+  color: blue;
+}
+*/
+/*2n은 짝수 2n+1은 홀수
+.fruits *:nth-child(2n){
+  color: red;
+}*/
+
+.fruits *:not(span) {
+  color: red;
+}

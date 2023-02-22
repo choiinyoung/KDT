@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li onclick="deleteThis(this)">1</li>
+    <li onclick="deleteThis(this)">2</li>
+    <li onclick="deleteThis(this)">3</li>
+    <li onclick="deleteThis(this)">4</li>
+  </ul>
+  
+  <ul>
+    <li class="list">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+</body>
+<script>
+  function deleteThis(t){
+    console.log(t); //내가 누른 li가 나옴
+    t.remove()  //누른 li가 삭제됨
+  }
+
+  const listEl = document.querySelector(".list");
+
+  listEl.addEventListener("click",function(e){
+    e.target.remove();  
+    //e.target은 이벤트 객체
+    //클릭한 li를 제거 해줌
+  })
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      transition-duration: 2s;
+      /*hover에다가 주면 마우스를 떼면 바로 작아짐
+      여기다가 하면 천천히 작아짐*/
+      /*transition-property: width, height;
+      색깔이 천천히 변하지 않고 바로 변함
+      ex) height만 하게 되면 세로만  천천히 커짐 */
+      /*transition-timing-function: ease-in-out;
+      linear 일정한 속도로 커짐   ease-in 느렸다가 점점 빨라짐
+      ease-out 빨랐다가 느려짐      ease-in-out 빨랐다가 느렸다가 빨라짐*/
+      
+    }
+    div:hover {
+      width: 400px;
+      height: 100px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

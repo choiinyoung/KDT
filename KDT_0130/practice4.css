@@ -1,0 +1,35 @@
+.zoo *:nth-child(2n){
+  background-color: orange;
+}
+.zoo *:nth-child(1){
+  background-color: purple;
+}
+.zoo *:not(.predator){
+  background-color: green;
+}
+.zoo *:nth-child(8):hover{
+  background-color: red;
+}
+.zoo *:nth-child(3){
+  background-color: blue;
+}
+
+
+/*.zoo *:nth-child(2n){
+  background-color: orange;
+}
+.zoo *:first-child{
+  background-color: purple;
+}
+.zoo *:not(.predator){
+  background-color: green;
+}
+.zoo *:last-child{
+  background-color: red;
+}
+.zoo *:last-child:hover{
+  background-color: yellow;
+}
+.zoo *:nth-child(3){
+  background-color: blue;
+}*/

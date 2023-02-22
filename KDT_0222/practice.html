@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.localStorage.clear();
+    window.localStorage.setItem('인영','이름');
+    window.localStorage.setItem('여자','성별');
+    window.localStorage.setItem('25','나이');
+    window.localStorage.setItem('검은색','색깔');
+    window.localStorage.setItem('떡볶이','음식');
+
+    //순서대로 출력 안되는 이유 -> 어느것이 먼저 저장되는지 몰라서
+    for(let i = 0; i < window.localStorage.length; i++){
+      const key = window.localStorage.key(i);
+      const value = window.localStorage.getItem(key);
+      console.log(`key 값은 ${key} value 값은 ${value}`);
+    }
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex로 헤더 만들기</title>
+  <style>
+    /*ul{
+      list-style: none;
+      padding-left: 0px;
+      display: flex;
+      height: 50px;
+      background-color: 999;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      align-items: center;
+      text-align: center;
+    }
+    li{
+      flex-grow: 1;
+    }*/
+    ul{
+       display: flex;
+      list-style: none;
+      padding-left: 0px;
+      background-color: #999;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    li {
+      flex-basis: 100px;
+      text-align: center;
+      flex-grow: 1;
+      flex-shrink: 0;
+      font-weight: bold;
+      color: #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!--ul>li{메뉴$}*4-->
+  <div>
+    <ul>
+      <li>메뉴1</li>
+      <li>메뉴2</li>
+      <li>메뉴3</li>
+      <li>메뉴4</li>
+  </ul>
+  </div>
+</body>
+</html>

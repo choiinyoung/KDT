@@ -1,0 +1,110 @@
+body {}
+a {
+  text-decoration: none; color: #4a4a4a;
+}
+
+/*로고 파트*/
+header {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 4px 0 rgba(207, 207, 207, 0.5);  /*투명도*/
+}
+header .inner {
+  display: flex;
+  width: 1200px;
+  height: 64px;
+  padding: 0 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+header .inner .header__logo {}
+header .inner .header__logo a {
+  font-family: 'Indie Flower', cursive;
+  font-size: 32px;
+  color: green;
+}
+header .inner .header__logo a i {}
+
+/*메뉴 파트*/
+header .inner .header__menu {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  height: 32px;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+header .inner .header__menu li {
+  margin: 10px 30px;
+
+}
+header .inner .header__menu li a {}
+header .inner .header__menu li a:hover{
+  color: #1dc078;
+}
+/*공간 파트*/
+header .inner .header__space {
+  flex-shrink: 1;
+}
+
+/*검색 파트*/
+header .inner .header__search {
+  flex-shrink: 0;
+  position: relative;
+  height: 34px;
+  margin: right;
+}
+header .inner .header__search input {
+  box-sizing: border-box;
+  width: 148px;
+  height: 34px;
+  padding: 5px 9px;
+  font-size: 16px;
+  background-color: #f6f6f6;
+  border-radius: 3px;
+  border: none;
+  color: #4a4a4a;
+}
+header .inner .header__search input:hover{
+  border: 1px solid #c8c8c8;
+}
+header .inner .header__search input:focus{
+  border: 1px solid #c8c8c8;
+  outline-color:#1dc078;
+  /*outline: none;
+  box-shadow: inset 0px 0px 0 2px #1dc078;
+  그림자로 하는 방법도 있음*/
+}
+header .inner .header__search i {
+  /*transform: translateX(-30px);
+  이걸 사용하면 봤을 때 위치가 바껴 보이지만 실제 위치 원래대로임*/
+  position: absolute;
+  right: 9px;
+  height: 16px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+
+/*로그인 회원가입*/
+header .inner .header__login-join {
+  display: flex;
+  height: 36px;
+  gap: 10px;
+}
+header .inner .header__login-join .btn {
+  height: 34px;
+  border: 1px solid #dbdbdb;
+  box-sizing: border-box;
+  padding: 9px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+header .inner .header__login-join .btn.btn--login {
+  color: #4a4a4a;
+  background-color: white;
+}
+header .inner .header__login-join .btn.btn--join {
+  color: white;
+  background-color: #f77867;
+}
