@@ -1,0 +1,102 @@
+@import "reset";
+@import "mixin";
+
+$body-bg:#111;
+$wrap-border:#ddd;
+$wrap__item:#111;
+$wrap__item_h2:#333;
+$wrap__item_p:#777;
+$btn-bg: orange;
+$bt-font:white;
+$wrap__item-shadow:5px 5px 20px rgba(0, 0, 0, 0.1);
+body {
+  background-color: $body-bg;
+}
+//MAIN
+.wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 100px;
+  border: 2px solid $wrap-border;
+  perspective: 600px;
+  
+  &:hover{
+    .item{
+      opacity: 1;
+      transform: translateY(0px) rotateY(0deg);
+      transition: 1s;
+    }
+  }
+  .item {
+    width: 300px;
+    padding: 30px;
+    background-color: $wrap__item;
+    margin: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px $wrap__item-shadow;
+    transform: translateY(100px) rotateY(100deg);
+    transition: 0.6s;
+    opacity: 0;
+    
+    &:hover { //호버할 때 자기 자신 선택자를 사용해야함 현재 item에 hover됨
+      background-color: $btn-bg;
+    }
+    h2{
+      font: bold 30px/1 "arial";
+      margin-bottom: 20px;
+      /*color: $wrap__item_h2;*/
+      //다크모드
+      @if $wrap__item == #fff {
+        color: $wrap__item_h2;
+      } @else {
+        color: white;
+      }
+    }
+    p{
+      font: normal 16px/1.5 "arial";
+      /*color: $wrap__item_p;*/
+      //다크모드
+      @if $wrap__item == #fff {
+        color: $wrap__item_p;
+      } @else {
+        color: white;
+      }
+    }
+    a{
+      @include button($width:100%, $bg-color:$btn-bg,$font-color:$bt-font);
+    }
+
+    $interval:0.3s;
+
+    /*&:nth-child(1) {
+      transition: 0.1s;
+    }
+    &:nth-child(2) {
+      transition: 0.2s;
+    }
+    &:nth-child(3) {
+      transition: 0.3s;
+    }
+    &:nth-child(4) {
+      transition: 0.4s;
+    }*/
+    /*@for $i from 1 to 5 {
+      &:nth-child(#{$i}){
+        transition-delay: $interval * $i;
+      }
+    }*/
+    
+    $bgColors:(orange,hotpink,aqua,lightgreen);
+    @each $el in $bgColors {
+      $index: index($list: $bgColors,$value: $el);
+      &:nth-child(#{$index}) {
+        transition-delay: $interval * $index;
+
+        a{
+          @include button($bg-color:$el);
+        }
+      }
+    }
+  }
+}
