@@ -28,3 +28,6 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`${PORT}번에서 서버 실행`);
 });
+//main server 역할
+
+const userRouter = require()

@@ -1,0 +1,7 @@
+{
+  //prettierrc를 사용하려면 이 코드가 필요함
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
