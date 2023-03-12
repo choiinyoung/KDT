@@ -15,7 +15,7 @@ app.use('/', (req, res) => {
   res.send(json);
 });
 
-// 연결 되었는지 확인해주는 listen 사용해서 확인
+// 연결 되었는지 확인해주는 listen 사용
 app.listen(PORT, () => {
   console.log(`데이터 통신서버 ${PORT}에서 작동 중입니다`);
 });
