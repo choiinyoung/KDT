@@ -33,6 +33,12 @@ app.use('/board', boardRouter);
 //   res.send('Express처음이지용');
 // });
 
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  res.status(err.statusCode);
+  res.send(err.message);
+});
+
 // 서버를 최초로 열어주는 코드
 app.listen(PORT, () => {
   // 서버가 제대로 열렸을 때 보여지는 콜백함수

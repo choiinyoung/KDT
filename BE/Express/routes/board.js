@@ -26,35 +26,48 @@ router.get('/write', (req, res) => {
 
 // 글 추가
 router.post('/write', (req, res) => {
-  console.log(req.body);
-  if (Object.keys(req.body).length >= 1) {
-    if (req.body.title && req.body.content) {
-      const newARTICLE = {
-        title: req.body.title,
-        content: req.body.content,
-      };
+  if (req.body.title && req.body.content) {
+    const newARTICLE = {
+      title: req.body.title,
+      content: req.body.content,
+    };
 
-      ARTICLE.push(newARTICLE);
-      res.redirect('/board');
-    } else {
-      const err = new Error('글쓰기 오류');
-      err.statusCode = 404;
-      throw err;
-    }
-  } else {
-    const err = new Error('글쓰기 오류');
-    err.statusCode = 404;
-    throw err;
+    ARTICLE.push(newARTICLE);
+    res.redirect('/board');
   }
 });
 
 // 글 수정
 // title이라는 파라미터를 받아 수정하게 함
-router.get('/modify/:title', (req, res) => {});
+router.get('/modify/:title', (req, res) => {
+  const arrIndex = ARTICLE.findIndex(
+    (article) => req.params.title === article.title
+  );
+  const selectedArticle = ARTICLE[arrIndex];
+  res.render('board_modify', { selectedArticle });
+});
 
-router.post('/modify/:title', (req, res) => {});
+router.post('/modify/:title', (req, res) => {
+  if (req.body.title && req.body.content) {
+    // findIndex 사용해서 내가 원하는 데이터가 몇번째 배열에 있는지
+    const arrIndex = ARTICLE.findIndex(
+      (article) => article.title === req.params.title
+    );
+    ARTICLE[arrIndex].title = req.body.title;
+    ARTICLE[arrIndex].content = req.body.content;
+    res.redirect('/board');
+  }
+});
 
 // 글 삭제
-router.delete('/delete/:title', (req, res) => {});
+router.delete('/delete/:title', (req, res) => {
+  const arrIndex = ARTICLE.findIndex(
+    (article) => article.title === req.params.title
+  );
+  // splice
+  ARTICLE.splice(arrIndex, 1);
+  res.redirect('/board');
+  // res.send('삭제 완료');
+});
 
 module.exports = router;
