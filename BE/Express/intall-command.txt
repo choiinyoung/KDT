@@ -1,0 +1,2 @@
+npm i -D prettier esling eslint-config-airbnb-base eslint-plug-import
+npm i -S express core ejs
