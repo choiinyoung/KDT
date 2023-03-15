@@ -18,6 +18,7 @@ app.use(express.static('public'));
 const mainRouter = require('./routes');
 const userRouter = require('./routes/user');
 const boardRouter = require('./routes/board');
+const dbRouter = require('./routes/db');
 
 // req.body사용하려먼 사용해야함
 // 또한 제일 위에 사용해야 값이 읽힘
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', mainRouter);
 app.use('/users', userRouter);
 app.use('/board', boardRouter);
+app.use('/db', dbRouter);
 
 // 미들웨어
 // app.get('/', (req, res) => {
