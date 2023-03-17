@@ -28,6 +28,7 @@ const dbRouter = require('./routes/db');
 const dbBoardRouter = require('./routes/dbBoard');
 const cookieRouter = require('./routes/cookie');
 const registerRouter = require('./routes/register');
+const loginRouter = require('./routes/login');
 
 // req.body사용하려먼 사용해야함
 // 또한 제일 위에 사용해야 값이 읽힘
@@ -52,6 +53,7 @@ app.use('/db', dbRouter);
 app.use('/dbBoard', dbBoardRouter);
 app.use('/cookie', cookieRouter);
 app.use('/register', registerRouter);
+app.use('/login', loginRouter);
 
 // 미들웨어
 // app.get('/', (req, res) => {

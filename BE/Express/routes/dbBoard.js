@@ -5,11 +5,16 @@ const router = express.Router();
 
 // 게시판 페이지 호출
 router.get('/', (req, res) => {
-  boardDB.getAllArticles((data) => {
-    const ARTICLE = data;
-    const articleCounts = ARTICLE.length;
-    res.render('db_board', { ARTICLE, articleCounts });
-  });
+  if (req.session.login === true) {
+    boardDB.getAllArticles((data) => {
+      const ARTICLE = data;
+      const articleCounts = ARTICLE.length;
+      res.render('db_board', { ARTICLE, articleCounts });
+    });
+  } else {
+    res.status(400);
+    res.send('로그인 필요한 서비스 입니다!<br><a href="/login">로그인 페이지로 이동</a>');
+  }
 });
 
 // 글쓰기 페이지 호출

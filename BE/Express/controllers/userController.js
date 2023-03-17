@@ -20,8 +20,13 @@ const userDB = {
   },
   // 회원가입 하기
   registerUser: (newUser, cb) => {
-    connection.query(`INSERT INTO mydb1.user (USERID, PASSWORD) values ('${newUser.id}', '${newUser.password}');`,(err,data) =>{})
-  }
+    connection.query(`INSERT INTO mydb1.user (USERID, PASSWORD) values ('${newUser.id}', '${newUser.password}');`,
+    (err, data) => {
+      if (err) throw err;
+      cb(data);
+      },
+    );
+  },
 };
 
 module.exports = userDB;
