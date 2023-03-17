@@ -1,6 +1,8 @@
 // 필요 패키지 불러오기
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 // req.body를 사용하려면 선언해줘야힘
 const bodyParser = require('body-parser');
@@ -15,23 +17,41 @@ app.use(cors());
 // 해당 코드를 추가하면 express가 알아서 프로젝트 폴더의 views폴더를 인식하게 됨
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 const mainRouter = require('./routes');
 const userRouter = require('./routes/user');
 const boardRouter = require('./routes/board');
 const dbRouter = require('./routes/db');
-const cookieRouter = require('./routes/cookie')
+const dbBoardRouter = require('./routes/dbBoard');
+const cookieRouter = require('./routes/cookie');
+const registerRouter = require('./routes/register');
 
 // req.body사용하려먼 사용해야함
 // 또한 제일 위에 사용해야 값이 읽힘
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(
+  session({
+    secret: 'young',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60,
+    },
+  }),
+);
+
 app.use('/', mainRouter);
 app.use('/users', userRouter);
 app.use('/board', boardRouter);
 app.use('/db', dbRouter);
+app.use('/dbBoard', dbBoardRouter);
 app.use('/cookie', cookieRouter);
+app.use('/register', registerRouter);
 
 // 미들웨어
 // app.get('/', (req, res) => {
