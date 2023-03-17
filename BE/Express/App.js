@@ -1,6 +1,7 @@
 // 필요 패키지 불러오기
 const express = require('express');
 const cors = require('cors');
+
 // req.body를 사용하려면 선언해줘야힘
 const bodyParser = require('body-parser');
 
@@ -19,6 +20,7 @@ const mainRouter = require('./routes');
 const userRouter = require('./routes/user');
 const boardRouter = require('./routes/board');
 const dbRouter = require('./routes/db');
+const cookieRouter = require('./routes/cookie')
 
 // req.body사용하려먼 사용해야함
 // 또한 제일 위에 사용해야 값이 읽힘
@@ -29,6 +31,7 @@ app.use('/', mainRouter);
 app.use('/users', userRouter);
 app.use('/board', boardRouter);
 app.use('/db', dbRouter);
+app.use('/cookie', cookieRouter);
 
 // 미들웨어
 // app.get('/', (req, res) => {
