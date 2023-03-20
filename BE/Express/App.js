@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+require('dotenv').config();
 
 // req.body를 사용하려면 선언해줘야힘
 const bodyParser = require('body-parser');
@@ -10,7 +11,7 @@ const bodyParser = require('body-parser');
 // express를 실행해서 app에 넣기
 // 포트 번호 설정
 const app = express();
-const PORT = 4000;
+const { PORT } = process.env; // 구조분해할당
 
 app.use(cors());
 // 뷰엔진을 ejs로 세팅한다는 코드
