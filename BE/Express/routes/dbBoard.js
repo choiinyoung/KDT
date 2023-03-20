@@ -5,11 +5,13 @@ const router = express.Router();
 
 // 로그인 확인용 미들웨어
 function isLogin(req, res, next) {
-  if (req.session.login) {
+  if (req.session.login || req.signedCookies.user) {
     next();
   } else {
     res.status(400);
-    res.send('로그인 필요한 서비스 입니다!<br><a href="/login">로그인 페이지로 이동</a>');
+    res.send(
+      '로그인 필요한 서비스 입니다!<br><a href="/login">로그인 페이지로 이동</a>',
+    );
   }
 }
 
@@ -35,8 +37,14 @@ router.get('/write', isLogin, (req, res) => {
 
 // 데이터 베이스에 글쓰기
 router.post('/write', isLogin, (req, res) => {
+  // USERID --> req.session.userId
   if (req.body.title && req.body.content) {
-    boardDB.writeArticle(req.body, (data) => {
+    const newArticle = {
+      userId: req.session.userId,
+      title: req.body.title,
+      content: req.body.content,
+    };
+    boardDB.writeArticle(newArticle, (data) => {
       console.log(data);
       if (data.affectedRows >= 1) {
         res.redirect('/dbBoard');
