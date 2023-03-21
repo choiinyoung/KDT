@@ -7,22 +7,6 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
-async function main() {
-  await client.connect();
-
-  const test = client.db('kdt5').collection('test');
-
-  const deleteManyResult = await test.deleteMany({});
-  if (!deleteManyResult.acknowledged) return '삭제 에러 발생';
-
-  const insertOneResult = await test.insertOne({ name: 'pororo', age: 5 });
-  if (!insertOneResult.acknowledged) return '데이터 삽입 에러 발생';
-  console.log(insertOneResult);
-}
-
-main();
-
-// // insertOne
 // client.connect((err) => {
 //   const test = client.db('kdt5').collection('test');
 
