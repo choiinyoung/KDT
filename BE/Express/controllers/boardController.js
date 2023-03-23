@@ -31,6 +31,7 @@ const writeArticle = async (req, res) => {
       USERID: req.session.userId,
       TITLE: req.body.title,
       CONTENT: req.body.content,
+      IMAGE: req.file ? req.file.filename : null,
     };
     await board.insertOne(newArticle);
     res.redirect('/dbBoard');

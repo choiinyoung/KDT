@@ -18,6 +18,7 @@ app.use(cors());
 // 해당 코드를 추가하면 express가 알아서 프로젝트 폴더의 views폴더를 인식하게 됨
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser('young'));
