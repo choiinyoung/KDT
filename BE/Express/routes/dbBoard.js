@@ -56,7 +56,7 @@ router.post('/write', isLogin, upload.single('img'), writeArticle);
 router.get('/modify/:id', isLogin, getArticle);
 
 // 글 수정
-router.post('/modify/:id', isLogin, modifyArticle);
+router.post('/modify/:id', isLogin, upload.single('img'), modifyArticle);
 
 // 글 삭제
 router.delete('/delete/:id', isLogin, deleteArticle);
